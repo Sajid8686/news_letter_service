@@ -1,0 +1,91 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imerge Solutions - Newsletter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .services {
+            padding: 10px 0;
+        }
+        .services h2 {
+            color: #4a90e2;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9em;
+            color: #666666;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #4a90e2;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Imerge Solutions</h1>
+            <img src="https://via.placeholder.com/600x200" alt="Company Banner">
+        </div>
+        <div class="content">
+            <h2>{{ subject }}</h2>
+            <p>{{ content|safe }}</p>
+            
+            <div class="services">
+                <h2>Our Services</h2>
+                <ul>
+                    <li>Custom Software Development</li>
+                    <li>IT Consulting & Solutions</li>
+                    <li>Web & Mobile App Development</li>
+                    <li>Cloud Infrastructure & Security</li>
+                    <li>24/7 Technical Support</li>
+                </ul>
+            </div>
+
+            <p>Stay tuned for more exciting updates, client success stories, and tech insights in our upcoming editions!</p>
+            
+            <a href="#" class="button">Learn More</a>
+        </div>
+        <div class="footer">
+            <p>&copy; 2025 Imerge Solutions. All rights reserved.</p>
+            <p>123 Business St, Tech City, TX 45678 | +1 (555) 123-4567 | info@imerge.com</p>
+        </div>
+    </div>
+</body>
+</html>

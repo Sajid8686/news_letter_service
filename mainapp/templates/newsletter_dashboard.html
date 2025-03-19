@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Newsletter Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .status-sent {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .status-pending {
+            color: #f39c12;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Newsletter Dashboard</h1>
+
+    <!-- Newsletters Table -->
+    <h2>Newsletters</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Content</th>
+                <th>Created At</th>
+                <th>Send At</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for newsletter in newsletters %}
+            <tr>
+                <td>{{ newsletter.subject }}</td>
+                <td>{{ newsletter.content|truncatechars:100 }}</td>
+                <td>{{ newsletter.created_at|date:"M d, Y H:i" }}</td>
+                <td>{{ newsletter.send_at|date:"M d, Y H:i" }}</td>
+                <td class="{% if newsletter.sent %}status-sent{% else %}status-pending{% endif %}">
+                    {% if newsletter.sent %}
+                        ✅ Sent
+                    {% else %}
+                        ⏳ Pending
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No newsletters available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Subscribers Table -->
+    <h2>Subscribers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subscriber in subscribers %}
+            <tr>
+                <td>{{ subscriber.email }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No subscribers yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
